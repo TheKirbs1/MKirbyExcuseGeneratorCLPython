@@ -22,13 +22,18 @@ excuse_endings = [
     "causing me to miss out on the event."
 ]
 
-random_starter = random.choice(excuse_starters)
+def generate_excuse():
+    
+    random_starter = random.choice(excuse_starters)
+    random_reason = random.choice(excuse_reasons)
+    random_ending = random.choice(excuse_endings)
+    final_excuse = random_starter + " " + random_reason + " " + random_ending
+    return final_excuse
 
-random_reason = random.choice(excuse_reasons)
+num_excuses = int(input("Enter the number of excuses to generate: "))
 
-random_ending = random.choice(excuse_endings)
-
-final_excuse = random_starter + "" + random_reason + "" + random_ending
-
-print("Generating Excuse: ")
-print(final_excuse)
+print("Generated Excuses: ")
+for _ in range(num_excuses):
+    excuse=generate_excuse();
+    print(excuse)
+    print("-" * 40)
